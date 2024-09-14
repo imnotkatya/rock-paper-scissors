@@ -1,0 +1,51 @@
+*
+{
+    margin: 0;
+    padding: 0;
+   align-items: center;
+    background-color: rgb(230, 197, 233);
+    text-align: center;
+}
+
+.buttons_play button, #game3 
+{ 
+    font-family: "Nerko One", cursive;
+  width: 180px;
+    background-color: darkorange;
+    padding: 20px 30px;
+    border-radius: 40px;
+    border: 0;
+
+    margin: 20px 10px;
+    font-size: 20px;
+}
+#ur_m,#comp_m 
+{
+  font-size: 60px; 
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+#status
+{
+    font-size: 75px; 
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal; 
+}
+#signs img,#signs_comp img
+{
+    height:200px;
+}
+.buttons_play button:hover, #game3:hover
+{ 
+    font-family: "Nerko One", cursive;
+  width: 180px;
+    background-color: rgb(157, 104, 40);
+    padding: 20px 30px;
+    border-radius: 40px;
+    border: 0;
+transition: 0.3s;
+    margin: 20px 10px;
+    font-size: 20px;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="buttons_play">
+   <button id="game0" onclick="game('rock')">rock ✊</button>
+   <button id="game1" onclick="game('paper')">paper🖐️ </button>
+   <button id="game2" onclick="game('scissors')">scissors🖖</button>
+</div>
+   <p id="ur_m"></p>
+   <p id="signs"></p>
+   <p id="comp_m"></p>
+   <p id="signs_comp"></p>
+   <p id="status"></p>
+  
+   <button id="game3" onclick="reset()">reset</button>
+</body>
+<script>
+     const score={wins:0,losses:0};
+function game(playerMove)
+{
+    var vers = ['rock', 'paper', 'scissors'];
+    let computermove = vers[Math.floor(Math.random() * 3)];
+   let yourmove=playerMove;
+   var image=document.createElement("img");
+   var image_comp=document.createElement("img");
+
+   document.getElementById("signs").innerHTML = ""; 
+document.getElementById("signs").appendChild(image); 
+document.getElementById("signs_comp").innerHTML = ""; 
+document.getElementById("signs_comp").appendChild(image_comp); 
+
+if(computermove==playerMove)
+{
+    console.log("tie");
+}
+else if(
+    computermove=="rock"&&playerMove=="scissors"||
+    computermove=="scissors"&&playerMove=="paper"||
+    computermove=="paper"&&playerMove=="rock"
+    
+)
+{
+    console.log("comp won");
+    score.losses+=1;
+}
+
+else{
+    console.log("u won");
+    score.wins+=1;
+}
+
+if(playerMove=="paper")
+{
+    image.src='paper-emoji.png';
+}
+if(playerMove=="rock")
+{
+    image.src='rock-emoji.png';
+}
+if(playerMove=="scissors")
+{
+    image.src='scissors-emoji.png';
+}
+
+if(computermove=="paper")
+{
+    image_comp.src='paper-emoji.png';
+}
+if(computermove=="rock")
+{
+    image_comp.src='rock-emoji.png';
+}
+if(computermove=="scissors")
+{
+    image_comp.src='scissors-emoji.png';
+}
+
+document.getElementById("ur_m").innerHTML="your move is "+yourmove;
+
+document.getElementById("comp_m").innerHTML="computer move is "+computermove;
+document.getElementById("status").innerHTML="wins="+score.wins+" losses="+score.losses;
+console.log(score);
+}
+
+function reset()
+{
+    score.wins=0;
+    score.losses=0;
+    document.getElementById("ur_m").innerHTML=" ";
+document.getElementById("comp_m").innerHTML=" ";
+    document.getElementById("status").innerHTML=" ";
+
+    document.getElementById("signs").innerHTML = ""; 
+
+document.getElementById("signs_comp").innerHTML = ""; 
+ 
+}
+</script>
+</html>
